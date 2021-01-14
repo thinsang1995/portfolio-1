@@ -3,9 +3,9 @@ import '../styles/Contact.css'
 import { AiTwotoneMail, AiTwotonePhone } from 'react-icons/ai';
 import { GiPositionMarker } from 'react-icons/gi'
 
-function Contact() {
+function Contact({ pageRefs }) {
   return (
-    <section className='contact' id='contact'>
+    <section className='contact' ref={el => pageRefs.current = {...pageRefs.current, contact: el}}>
       <div className='contact__container'>
         <h3>Contact Us</h3>
         <div className='contact__list'>

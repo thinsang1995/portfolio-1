@@ -3,9 +3,9 @@ import '../styles/Services.css'
 import { DiHtml5, DiCss3, DiJavascript1, DiReact } from 'react-icons/di';
 import { SiRedux } from 'react-icons/si';
 
-function Services() {
+function Services({ pageRefs }) {
   return (
-    <section className='services' id='services'>
+    <section className='services' ref={el => pageRefs.current = {...pageRefs.current, services: el}}>
       <div className='services__container'>
         <h3>Services</h3>
         <div className='services__list'>

@@ -1,16 +1,19 @@
 .home {
+  position: relative;
   background-image: url(../image/background-view.png);
-  background-repeat: no-repeat;
   background-position: 0px 0px;
-  height: 100vh;
+  background-size: cover;
+  width: 100%;
 }
 
 .home__container {
   background-image: linear-gradient( to bottom, rgba(13, 13, 13, 0.4), rgba(13, 13, 13, 0.4));
   height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .home__caption {
@@ -65,3 +68,10 @@
 .home__social span:hover {
   color: red;
 }
+
+/* @media only screen and (max-width: 360px) {
+  .home {
+    width: 665px;
+    height: 100vh;
+  }
+} */

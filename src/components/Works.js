@@ -7,9 +7,9 @@ import Portfolio4 from '../image/portfolio-4.png';
 import Portfolio5 from '../image/portfolio-5.png';
 import Portfolio6 from '../image/portfolio-6.png';
 
-function Works() {
+function Works({ pageRefs }) {
   return (
-    <section className='portfolio' id='works'>
+    <section className='portfolio' ref={el => pageRefs.current = {...pageRefs.current, portfolio: el}}>
       <div className='portfolio__container'>
         <h3>Portfolio</h3>
         <ul className='portfolio__navbar'>
@@ -26,23 +26,18 @@ function Works() {
           </div>
           <div className='item-img'>
             <img src={Portfolio2} alt='portfolio-2' />
-            <div className='item-img-overlay'></div>
           </div>
           <div className='item-img'>
             <img src={Portfolio3} alt='portfolio-3' />
-            <div className='item-img-overlay'></div>
           </div>
           <div className='item-img'>
             <img src={Portfolio4} alt='portfolio-4' />
-            <div className='item-img-overlay'></div>
           </div>
           <div className='item-img'>
             <img src={Portfolio5} alt='portfolio-5' />
-            <div className='item-img-overlay'></div>
           </div>
           <div className='item-img'>
             <img src={Portfolio6} alt='portfolio-6' />
-            <div className='item-img-overlay'></div>
           </div>
         </div>
       </div>

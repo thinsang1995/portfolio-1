@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 5rem 1rem;
+  margin: 0 1rem;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
   text-align: center;
   height: 80vh;
 }
@@ -47,3 +49,9 @@
   font-size: 15px;
   margin: 0;
 }
+
+/* @media only screen and (max-width: 360px) {
+  .contact {
+    width: 665px;
+  }
+} */

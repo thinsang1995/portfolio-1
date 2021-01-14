@@ -52,3 +52,9 @@
   background-color: black;
   color: white;
 }
+
+/* @media only screen and (max-width: 360px) {
+  .services {
+    width: 665px;
+  }
+} */

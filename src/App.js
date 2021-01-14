@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 
 import Navbar from './components/Navbar';
@@ -12,17 +12,29 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+  const pageRefs = useRef({})
+
+  const handleScrollToPages = (type) => {
+    pageRefs.current[type].scrollIntoView({behavior: "smooth"})
+  }
+
   return (
     <div>
-      <Navbar />
-      <Home />
-      <About />
-      <Services />
-      <Works />
-      <Clients />
-      <Blogs />
-      <Contact />
-      <Footer />
+      <Navbar 
+        pageRefs={pageRefs}
+        handleScrollToPages={handleScrollToPages}
+      />
+      <Home pageRefs={pageRefs} />
+      <About 
+        pageRefs={pageRefs} 
+        handleScrollToPages={handleScrollToPages}
+      />
+      <Services pageRefs={pageRefs} />
+      <Works pageRefs={pageRefs} />
+      <Clients pageRefs={pageRefs} />
+      <Blogs pageRefs={pageRefs} />
+      <Contact pageRefs={pageRefs} />
+      <Footer pageRefs={pageRefs} />
     </div>
   );
 }

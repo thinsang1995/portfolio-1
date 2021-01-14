@@ -35,29 +35,39 @@
 
 .portfolio__navbar a:hover {
   border-bottom: 2px solid black;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.1rem;
   transition: all 0.3s ease-out;
 }
 
 .portfolio__image {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
 }
 
 .item-img {
-  height: 20rem;
-  width: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%s;
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);
-  margin: 1rem;
-  align-self: center;
-  justify-self: center;
+  margin: 0.5rem 1rem;
+  overflow: hidden;
 }
 
 .portfolio__image img {
   height: 100%;
-  width: 100%;
+  width: 90vw;
 }
+
+/* @media only screen and (max-width: 360px) {
+  .portfolio {
+    width: 665px;
+  }
+
+  .item-img {
+    height: 15rem;
+    width: 15rem;
+  }
+} */

@@ -6,7 +6,7 @@ import Blog3 from '../image/blog-3.jpg';
 import Blog4 from '../image/blog-4.jpg';
 import Slider from 'infinite-react-carousel'
 
-function Blogs() {
+function Blogs({ pageRefs }) {
 
   const settingBlogs = {
     arrows: false,
@@ -17,7 +17,7 @@ function Blogs() {
   }
 
   return (
-    <section className='blogs' id='blogs'>
+    <section className='blogs' ref={el => pageRefs.current = {...pageRefs.current, blogs: el}}>
       <div className='blogs__container'>
         <h3>Our Blogs</h3>
         <div className='blogs__list'>

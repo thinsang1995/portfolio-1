@@ -3,9 +3,9 @@ import '../styles/Home.css'
 import { FiFacebook, FiInstagram, FiTwitter, FiLinkedin } from "react-icons/fi";
 import Typical from 'react-typical'
 
-function Home() {
+function Home({ pageRefs }) {
   return (
-    <section className='home' id='home'>
+    <section className='home' ref={el => pageRefs.current = {...pageRefs.current, home: el}}>
       <div className='home__container'>
         <div className='home__caption'>
           <h5>Hello</h5>

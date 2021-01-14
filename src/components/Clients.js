@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/Clients.css'
 import { FaCloudDownloadAlt } from 'react-icons/fa';
 import { BsFillPeopleFill } from 'react-icons/bs';
@@ -7,7 +7,7 @@ import { HiSpeakerphone }  from 'react-icons/hi';
 import { AiFillLike } from 'react-icons/ai';
 import Slider from 'infinite-react-carousel'
 
-function Clients() {
+function Clients({ pageRefs }) {
 
   const settingClients =  {
     arrows: false,
@@ -16,9 +16,26 @@ function Clients() {
     autoplaySpeed: 5000,
     dots: true,
   };
+
+  const clientData = {
+    number: 850
+  }
+
+  const [happy, setHappy] = useState(0)
+  useEffect(() => {
+    let start = 0
+    const end = Number(clientData.number)
+    if (start === end) return
+
+    let timer = setInterval(() => {
+      start += 5
+      setHappy(start)
+      if(start === end) clearInterval(timer)
+    }, 0)
+  }, [clientData.number])
   
   return (
-    <section className='clients' id='clients'>
+    <section className='clients' ref={el => pageRefs.current = {...pageRefs.current, clients: el}}>
       <div className='clients__container'>
         <h3>Testimonials</h3>
         <div className='clients__feedback'>
@@ -52,7 +69,7 @@ function Clients() {
         <div className='clients__numbers'>
           <div className='clients__numbers-item'>
             <span className='numbers__icon'><BsFillPeopleFill size={35} /></span>
-            <h3>850</h3>
+            <h3>{happy}</h3>
             <p>Happy Customers</p>
           </div>
           <div className='clients__numbers-item'>
