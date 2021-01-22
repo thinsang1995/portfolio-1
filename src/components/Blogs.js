@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/Blogs.css'
 import Blog1 from '../image/blog-1.jpg';
 import Blog2 from '../image/blog-2.jpeg';
@@ -7,6 +7,7 @@ import Blog4 from '../image/blog-4.jpg';
 import Slider from 'infinite-react-carousel'
 
 function Blogs({ pageRefs }) {
+  const [widthSize, setWidthSize] = useState((window.innerWidth >= 768) ? 2 : 1)
 
   const settingBlogs = {
     arrows: false,
@@ -14,7 +15,19 @@ function Blogs({ pageRefs }) {
     autoplay: true,
     autoplaySpeed: 5000,
     dots: true,
+    slidesToShow: widthSize
   }
+
+  useEffect(() => {
+    const handleScreenWidth = () => {
+      if(window.innerWidth >= 768) {
+        setWidthSize(2)
+      } else {
+        setWidthSize(1)
+      }
+    }
+    window.addEventListener('resize', handleScreenWidth)
+  })
 
   return (
     <section className='blogs' ref={el => pageRefs.current = {...pageRefs.current, blogs: el}}>
