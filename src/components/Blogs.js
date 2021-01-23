@@ -7,7 +7,10 @@ import Blog4 from '../image/blog-4.jpg';
 import Slider from 'infinite-react-carousel'
 
 function Blogs({ pageRefs }) {
-  const [widthSize, setWidthSize] = useState((window.innerWidth >= 768) ? 2 : 1)
+  const [widthSize, setWidthSize] = useState(
+    (window.innerWidth >= 1200) ? 3 
+    : (window.innerWidth >= 768) ? 2 : 1
+  )
 
   const settingBlogs = {
     arrows: false,
@@ -20,7 +23,9 @@ function Blogs({ pageRefs }) {
 
   useEffect(() => {
     const handleScreenWidth = () => {
-      if(window.innerWidth >= 768) {
+      if(window.innerWidth >= 1200) {
+        setWidthSize(3)
+      } else if(window.innerWidth >= 768) {
         setWidthSize(2)
       } else {
         setWidthSize(1)

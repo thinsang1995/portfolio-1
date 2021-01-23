@@ -71,7 +71,7 @@ function Clients({ pageRefs }) {
           setCodes(startCodes)
           if(startCodes === endCodes) clearInterval(codesTimer)
         }, 0)
-        
+
         let filesTimer = setInterval(() => {
           startFiles += 5
           setFiles(startFiles)
@@ -119,24 +119,24 @@ function Clients({ pageRefs }) {
           </Slider>
         </div>
         <div className='clients__numbers'>
-          <div className='clients__numbers-item happyNum'>
+          <div className='clients__numbers-item'>
             <span className='numbers__icon'><BsFillPeopleFill size={35} /></span>
-            <h3>{happy}</h3>
+            <h4>{happy}</h4>
             <p>Happy Customers</p>
           </div>
-          <div className='clients__numbers-item completeNum'>
+          <div className='clients__numbers-item'>
             <span className='numbers__icon'><AiFillLike size={35} /></span>
-            <h3>{complete}</h3>
+            <h4>{complete}</h4>
             <p>Complete Projects</p>
           </div>
-          <div className='clients__numbers-item codeNum'>
+          <div className='clients__numbers-item'>
             <span className='numbers__icon'><HiSpeakerphone size={35} /></span>
-            <h3>{codes}</h3>
+            <h4>{codes}</h4>
             <p>Lines Of Code</p>
           </div>
-          <div className='clients__numbers-item fileNum'>
+          <div className='clients__numbers-item'>
             <span className='numbers__icon'><FaCloudDownloadAlt size={35} /></span>
-            <h3>{files}</h3>
+            <h4>{files}</h4>
             <p>Files Downloaded</p>
           </div>
         </div>

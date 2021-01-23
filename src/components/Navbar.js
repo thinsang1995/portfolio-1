@@ -14,8 +14,8 @@ function Navbar({ pageRefs, handleScrollToPages }) {
     handleScrollToPages(page)
   }
 
-  const sections = document.querySelectorAll('section[class]')
   useEffect(() => {
+    const sections = document.querySelectorAll('section[class]')
     const handleActiveItem = () => {
       sections.forEach(current => {
         let sectionHeight = current.offsetHeight
