@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef } from 'react'
 import '../styles/Clients.css'
 import { FaCloudDownloadAlt } from 'react-icons/fa';
 import { BsFillPeopleFill } from 'react-icons/bs';
@@ -7,7 +7,22 @@ import { HiSpeakerphone }  from 'react-icons/hi';
 import { AiFillLike } from 'react-icons/ai';
 import Slider from 'infinite-react-carousel'
 
-function Clients({ pageRefs }) {
+const customers = ['Alex Smith', 'David Joe', 'Alan Walker']
+
+
+
+const Clients = forwardRef((props, ref) => {
+  const [happy, setHappy] = useState(0)
+  const [complete, setComplete] = useState(0)
+  const [codes, setCodes] = useState(0)
+  const [files, setFiles] = useState(0)
+
+  const clientNumbers = [
+    {icon: BsFillPeopleFill, amout: happy, text: 'Happy Customers'},
+    {icon: AiFillLike, amout: complete, text: 'Complete Projects'},
+    {icon: HiSpeakerphone, amout: codes, text: 'Lines Of Code'},
+    {icon: FaCloudDownloadAlt, amout: files, text: 'Files Downloaded'},
+  ]
 
   const settingClients =  {
     arrows: false,
@@ -16,18 +31,6 @@ function Clients({ pageRefs }) {
     autoplaySpeed: 5000,
     dots: true,
   };
-
-  const clientData = {
-    happy: 850,
-    complete: 280,
-    codes : 9450,
-    files: 340
-  }
-
-  const [happy, setHappy] = useState(0)
-  const [complete, setComplete] = useState(0)
-  const [codes, setCodes] = useState(0)
-  const [files, setFiles] = useState(0)
 
   useEffect(() => {
     const navWaypoint = document.querySelector('.nav__waypoint')
@@ -38,16 +41,16 @@ function Clients({ pageRefs }) {
       let counterSitePosition = counterSite.getBoundingClientRect()
 
       if(navWaypointPositon.bottom > counterSitePosition.top 
-        && navWaypointPositon.bottom < counterSitePosition.top + 100) {
+        && navWaypointPositon.bottom < counterSitePosition.top) {
         let startHappy = 0
         let startComplete = 0
         let startCodes = 0
         let startFiles = 0
 
-        const endHappy = clientData.happy
-        const endComplete = clientData.complete
-        const endCodes = clientData.codes
-        const endFiles = clientData.files
+        const endHappy = 850
+        const endComplete = 280
+        const endCodes = 9450
+        const endFiles = 340
 
         if(startHappy === endHappy) return
         if(startComplete === endComplete) return
@@ -87,62 +90,37 @@ function Clients({ pageRefs }) {
   });
   
   return (
-    <section className='clients' ref={el => pageRefs.current = {...pageRefs.current, clients: el}}>
+    <section className='clients' ref={ref}>
       <div className='clients__container'>
-        <h3>Testimonials</h3>
-        <div className='clients__feedback'>
-          <Slider {...settingClients}>
-            <div className='clients__feedback-item'>
-              <div className='clients__avata'>
-                <img src={CustomerAvata} alt='customer-avata' />
-              </div>
-              <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              <h6>Alex Smith</h6>
-              <span>Envato Customer</span>
-            </div>
-            <div className='clients__feedback-item'>
-              <div className='clients__avata'>
-                <img src={CustomerAvata} alt='customer-avata' />
-              </div>
-              <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              <h6>Alex Smith</h6>
-              <span>Envato Customer</span>
-            </div>
-            <div className='clients__feedback-item'>
-              <div className='clients__avata'>
-                <img src={CustomerAvata} alt='customer-avata' />
-              </div>
-              <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              <h6>Alex Smith</h6>
-              <span>Envato Customer</span>
-            </div>
-          </Slider>
+        <div className='clients__wrapper'>
+          <h2>Testimonials</h2>
+          <div className='clients__feedback'>
+            <Slider {...settingClients}>
+              {customers.map((customer, index) => (
+                <div key={index} className='clients__feedback-item'>
+                  <div className='clients__avata'>
+                    <img src={CustomerAvata} alt='customer-avata' />
+                  </div>
+                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                  <h6>{customer}</h6>
+                  <span>Envato Customer</span>
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
         <div className='clients__numbers'>
-          <div className='clients__numbers-item'>
-            <span className='numbers__icon'><BsFillPeopleFill size={35} /></span>
-            <h4>{happy}</h4>
-            <p>Happy Customers</p>
-          </div>
-          <div className='clients__numbers-item'>
-            <span className='numbers__icon'><AiFillLike size={35} /></span>
-            <h4>{complete}</h4>
-            <p>Complete Projects</p>
-          </div>
-          <div className='clients__numbers-item'>
-            <span className='numbers__icon'><HiSpeakerphone size={35} /></span>
-            <h4>{codes}</h4>
-            <p>Lines Of Code</p>
-          </div>
-          <div className='clients__numbers-item'>
-            <span className='numbers__icon'><FaCloudDownloadAlt size={35} /></span>
-            <h4>{files}</h4>
-            <p>Files Downloaded</p>
-          </div>
+          {clientNumbers.map((item, index) => (
+            <div key={index} className='clients__numbers-item'>
+              <span className='numbers__icon'><item.icon size={35} /></span>
+              <h4>{item.amout}</h4>
+              <p>{item.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   )
-}
+})
 
 export default Clients

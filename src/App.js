@@ -12,29 +12,36 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  const pageRefs = useRef({})
-
+  const homeRef = useRef()
+  const aboutRef = useRef()
+  const servicesRef = useRef()
+  const worksRef = useRef()
+  const clientsRef = useRef()
+  const blogsRef = useRef()
+  const contactRef = useRef()
+  
   const handleScrollToPages = (type) => {
-    pageRefs.current[type].scrollIntoView({behavior: "smooth"})
+    type.current.scrollIntoView({behavior: "smooth"})
   }
 
   return (
     <div>
       <Navbar 
-        pageRefs={pageRefs}
-        handleScrollToPages={handleScrollToPages}
+        pageRefs={{homeRef, aboutRef, servicesRef, worksRef, clientsRef, blogsRef, contactRef}}
+        handleScrollToPages={(e) => handleScrollToPages(e)}
       />
-      <Home pageRefs={pageRefs} />
+      <Home ref={homeRef} />
       <About 
-        pageRefs={pageRefs} 
-        handleScrollToPages={handleScrollToPages}
+        pageRefs = {{contactRef}}
+        ref={aboutRef} 
+        handleScrollToPages={(e) => handleScrollToPages(e)}
       />
-      <Services pageRefs={pageRefs} />
-      <Works pageRefs={pageRefs} />
-      <Clients pageRefs={pageRefs} />
-      <Blogs pageRefs={pageRefs} />
-      <Contact pageRefs={pageRefs} />
-      <Footer pageRefs={pageRefs} />
+      <Services ref={servicesRef} />
+      <Works ref={worksRef} />
+      <Clients ref={clientsRef} />
+      <Blogs ref={blogsRef} />
+      <Contact ref={contactRef} />
+      <Footer/>
     </div>
   );
 }

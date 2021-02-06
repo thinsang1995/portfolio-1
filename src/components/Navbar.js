@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, forwardRef } from 'react'
 import '../styles/Navbar.css'
 
-function Navbar({ pageRefs, handleScrollToPages }) {
+const Navbar =  forwardRef(({ pageRefs, handleScrollToPages }, ref) => {
 
   const [toggle, setToggle] = useState({isShow: false})
+  const {homeRef, aboutRef, servicesRef, worksRef, clientsRef, blogsRef, contactRef} = pageRefs
 
   const handleClickNavItem = () => {
     setToggle({isShow: !toggle.isShow})
@@ -16,6 +17,7 @@ function Navbar({ pageRefs, handleScrollToPages }) {
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[class]')
+
     const handleActiveItem = () => {
       sections.forEach(current => {
         let sectionHeight = current.offsetHeight
@@ -30,14 +32,15 @@ function Navbar({ pageRefs, handleScrollToPages }) {
           }
       })
     }
+
     window.addEventListener('scroll', handleActiveItem)
   })
 
   return (
-    <nav className='nav__wrapper' ref={el => pageRefs.current = {...pageRefs.current, home: el}}>
+    <nav className='nav__wrapper' >
       <div className='nav__container'>
         <div className='nav__logo'>
-          <h1 onClick={() => handleScrollToPages('home')}>Sang</h1>
+          <h1 onClick={() => handleScrollToPages(homeRef)}>Sang</h1>
           <div className='hamburger' onClick={handleClickNavItem}>
             <div className='line'></div>
             <div className='line'></div>
@@ -45,19 +48,18 @@ function Navbar({ pageRefs, handleScrollToPages }) {
           </div>
         </div>
         <ul className={`nav__bar ${toggle.isShow ? 'toggle' :''}`}>
-          <li><span className='nav-home' onClick={() => handleScrollNavbar('home')}>Home</span></li>
-          <li><span className='nav-about' onClick={() => handleScrollNavbar('about')}>About</span></li>
-          <li><span className='nav-services' onClick={() => handleScrollNavbar('services')}>Services</span></li>
-          <li><span className='nav-portfolio' onClick={() => handleScrollNavbar('portfolio')}>Works</span></li>
-          <li><span className='nav-clients' onClick={() => handleScrollNavbar('clients')}>Clients</span></li>
-          <li><span className='nav-blogs' onClick={() => handleScrollNavbar('blogs')}>Blogs</span></li>
-          <li><span className='nav-contact' onClick={() => handleScrollNavbar('contact')}>Contact</span></li>
+          <li><span className='nav-home' onClick={() => handleScrollNavbar(homeRef)}>Home</span></li>
+          <li><span className='nav-about' onClick={() => handleScrollNavbar(aboutRef)}>About</span></li>
+          <li><span className='nav-services' onClick={() => handleScrollNavbar(servicesRef)}>Services</span></li>
+          <li><span className='nav-portfolio' onClick={() => handleScrollNavbar(worksRef)}>Works</span></li>
+          <li><span className='nav-clients' onClick={() => handleScrollNavbar(clientsRef)}>Clients</span></li>
+          <li><span className='nav-blogs' onClick={() => handleScrollNavbar(blogsRef)}>Blog</span></li>
+          <li><span className='nav-contact' onClick={() => handleScrollNavbar(contactRef)}>Contact</span></li>
         </ul>
-
       </div>
       <div className='nav__waypoint'></div>
     </nav>
   )
-}
+})
 
-export default Navbar
+export default Navbar;

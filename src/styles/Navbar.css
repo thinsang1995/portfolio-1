@@ -4,24 +4,27 @@
   position: fixed;
   width: 100%;
   z-index: 9;
+
   background-color: white;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .nav__logo {
   position: relative;
-  width: 100%;
-  color: white;
   margin: 0;
-  padding: 1rem;
+  padding-top: 15px;
+  padding-left: 15px;
+  width: 100%;
+  height: 45px;
 }
 
 .nav__logo h1 {
   width: 30%;
-  letter-spacing: 5px;
-  font-size: 27px;
   margin: 0;
-  margin-left: 2rem;
+  margin-left: 10px;
+
+  font-size: 25px;
+  letter-spacing: 5px;
   color: black;
   cursor: pointer;
 }
@@ -31,41 +34,36 @@
   width: 100%;
   margin: 0;
   padding: 0;
+
   text-align: center;
   overflow: hidden;
   background-color: white;
-  transition: all 0.5s ease-in-out;
 }
 
 .toggle {
-  height: 35vh;
-  transition: all 0.5s ease-in-out;
+  height: 300px;
+  transition: all 0.5s ease-in;
 }
 
 .nav__bar li{
-  margin: 1.5rem;
+  margin: 24px;
 }
 
 .nav__bar a {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 }
 
 .nav__bar li {
+  font-size: 13px;
   list-style-type: none;
   cursor: pointer;
-  font-size: 13px;
-}
-
-.nav__bar span:hover {
-  border-bottom: 2px solid black;
-  padding-bottom: 0.1rem;
-  transition: all 0.3s ease-out;
 }
 
 .nav__bar .active {
+  padding-bottom: 3px;
   border-bottom: 2px solid black;
-  padding-bottom: 0.1rem;
+  transition: all 0.3s ease-out;
 }
 
 .hamburger .line {
@@ -82,8 +80,8 @@
 .line {
   width: 24px;
   height: 2px;
-  background-color: white;
   margin: 5px;
+  background-color: white;
 }
 
 .nav__waypoint {
@@ -91,29 +89,14 @@
   bottom: 5%;
   width: 100%;
   height: 1vh;
-  opacity: 0;
-}
-
-@media only screen and (max-width: 500px) {
-  .nav__logo h1 {
-    margin-left: 1rem;
-    font-size: 24px;
-  }
-
-  .toggle {
-    height: 300px;
-  }
-
-  .nav__bar li {
-    font-size: 12px;
-  }
+  opacity: 1;
+  background-color: black;
 }
 
 @media only screen and (min-width: 768px) {
   .nav__container {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
   }
 
   .hamburger {
@@ -121,25 +104,27 @@
   }
 
   .nav__logo {
-    width: 35%;
-    margin-left: 3rem;
+    width: 25%;
+    margin-left: 2rem;
   }
 
   .nav__bar {
-    height: 50px;
     display: flex;
     justify-content: space-around;
+    height: 50px;
+    width: 70%;
+    padding-top: 0.5rem;
+    margin-right: 7%;
     color: black;
   }
 
   .nav__bar li{
-    margin: 1rem;
+    margin: 16px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .nav__logo {
-    width: 70%;
-    margin-left: 5rem;
+    margin-left: 8rem;
   }
 }

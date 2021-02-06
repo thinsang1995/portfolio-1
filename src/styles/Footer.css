@@ -1,15 +1,18 @@
 .footer__container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
+
+  margin: 0;
   width: 100%;
   height: auto;
-  background-color: black;
+  background-color: #1c1c1c;
 }
 
 .footer__container p {
-  font-size: 12px;
+  font-size: 13px;
   word-spacing: 2px;
-  color: white;
-  margin: 2rem 0;
+  line-height: 1.6;
+  color: #f4f4f4;
+  padding: 20px;
 }

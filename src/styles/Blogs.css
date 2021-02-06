@@ -2,37 +2,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
   background-color: #f7f7f7;
 }
 
-.blogs__container h3 {
-  margin-top: 7rem;
-  margin-bottom: 2rem;
+.blogs__container h2 {
   text-align: center;
+  margin-top: 150px;
+  margin-bottom: 70px;
 }
 
 .blogs__list {
-  padding-bottom: 5rem;
-  margin: 0 1rem;
+  padding-bottom: 150px;
 }
 
 .blogs__item {
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
-}
-
-.blogs__item {
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
-  height: 60vh;
-  margin: 0;
-  margin-bottom: 0.2rem;
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  width: 100vw;
+  box-shadow: 0px 10px 30px -8px rgba(0, 0, 0, 0.1);
 }
 
 .blogs__item-image {
@@ -45,8 +31,7 @@
 }
 
 .blogs__item-content {
-  flex: 1;
-  margin: 1rem;
+  margin: 25px 15px;
 }
 
 .blogs__item-image img {
@@ -62,7 +47,6 @@
 .blogs__item-content h6 {
   font-size: 20px;
   font-weight: 800;
-  margin: 0;
   color: #888;
 }
 
@@ -73,67 +57,48 @@
 }
 
 .blogs__item-content h4 {
+  margin: 15px 0;
   font-size: 23px;
   font-weight: 800;
-  margin: 1rem 0;
 }
 
 .blogs__item-content span {
-  border-bottom: 2px solid #535353;
   font-size: 16px;
-  margin-bottom: 1rem;
+  border-bottom: 2px solid #535353;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (min-width: 768px) {
   .blogs__list {
-    margin: 0 0.5rem;
+    margin: 0 2vw;
   }
 
   .blogs__item {
-    height: 400px;
+    height: 45vh;
   }
 
   .blogs__item-image {
     height: 55%;
   }
-
-  .blogs__item-content h6 {
-    font-size: 12px;
-  }
-  
-  .blogs__item-content h4 {
-    font-size: 20px;
-  }
-
-  .blogs__item-content span {
-    font-size: 14px;
-  }
 }
 
-@media only screen and (min-width: 768px) {
-  .blogs__list {
-    margin: 0 1.5rem;
-  }
-
+@media only screen and (min-width: 1024px) {
   .blogs__item {
-    height: 55vh;
+    height: 30vh;
   }
 
   .blogs__item-image {
-    height: 60%;
+    height: 50%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .blogs__list {
-    margin: 0 6rem;
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .blogs__item {
-    height: 50vh;
-  }
-
-  .blogs__item-image {
-    height: 60%;
+    height: 40vh;
   }
 }

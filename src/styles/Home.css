@@ -1,19 +1,19 @@
 .home__container {
   position: relative;
+  width: 100%;
   background-image: url(../image/background-view.png);
   background-position: 0px 0px;
   background-size: cover;
-  width: 100%;
 }
 
 .hom__wrapper {
-  background-image: linear-gradient( to bottom, rgba(13, 13, 13, 0.4), rgba(13, 13, 13, 0.4));
-  height: 100vh;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient( to bottom, rgba(13, 13, 13, 0.4), rgba(13, 13, 13, 0.4));
 }
 
 .home__caption {
@@ -22,45 +22,45 @@
 }
 
 .home__caption h5 {
+  margin: 0;
   font-size: 60px;
   font-weight: 700;
-  margin: 0;
 }
 
 .home__caption h6 {
+  margin: 2vh 0;
   font-size: 40px;
   font-weight: 200;
-  margin: 0;
 }
 
 .home__name {
-  font-size: 35px;
+  font-size: 2rem;
   font-weight: 400;
-  margin: 30px;
 }
 
 .home__name b {
   font-size: 40px;
   font-weight: 400;
-  margin: 0;
 }
 
 .home__social {
-  margin-top: 1rem;
   display: flex;
   justify-content: center;
+  width: 90vw;
 }
 
 .home__social span {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0.2rem;
-  padding: 0.5rem;
+
   height: 20px;
   width: 20px;
-  background-color: rgba(13, 13, 13, 0.8);
+  margin: 5px;
+  padding: 10px;
+
   color: white;
+  background-color: rgba(13, 13, 13, 0.8);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -75,10 +75,20 @@
   }
   
   .home__caption h6 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .home__name b {
-    font-size: 32px;
+    font-size: 28px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .home__caption h6 {
+    font-size: 4rem;
+  }
+
+  .home__name b {
+    font-size: 4rem;
   }
 }

@@ -3,19 +3,19 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin: 5rem 0;
+  padding: 0 10px;
   background-color: #f7f7f7;
 }
 
-.services__container h3 {
-  margin-top: 10rem;
-  margin-bottom: 1rem;
+.services__container h2 {
+  margin-top: 150px;
+  margin-bottom: 50px;
 }
 
 .services__list {
   display: flex;
   flex-direction: column;
-  padding-bottom: 5rem;
+  padding-bottom: 150px;
 }
 
 .services__item {
@@ -23,8 +23,10 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin: 1rem 0;
-  border-radius: 10px;
+  margin: 2vh 0;
+  padding: 7vh 0;
+
+  border-radius: 5px;
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);
   background-color: white;
 }
@@ -33,23 +35,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
+
   border-radius: 50%;
-  background-color: #f7f7f7;
+  background-color: #f4f4f4;
   transition: 0.5s ease-in-out;
 }
 
 .services__item h6 {
   font-size: 20px;
-  margin: 0.3rem 0;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 .services__item p {
   font-size: 14px;
-  margin-bottom: 0.5rem;
-  padding-bottom: 1.5rem;
-  padding: 0 1rem;
+  padding: 0 30px;
 }
 
 .services__item:hover span {
@@ -61,29 +63,29 @@
   .services__list {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 5rem;
   }
 
   .services__item {
-    width: 30%;
-    margin: 1rem 0.5rem;
+    width: 47%;
+    margin: 1vh 0;
+    padding: 5vh 0;
   }
+}
 
-  .services__item p {
-    padding-bottom: 2rem;
-    word-spacing: 2px;
-  }
-
-  .services__item span {
-    margin-top: 2rem;
+@media only screen and (min-width: 1024px) {
+  .services__item {
+    width: 31%;
+    margin: 1vh 0;
+    padding: 3vh 0;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .services__list {
-    margin-left: 5rem;
-    margin-right: 5rem;
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
